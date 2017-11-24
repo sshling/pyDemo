@@ -84,9 +84,64 @@ x = d.setdefault('c', 5)  # 若存在c这个key，则返回值;否则设置值�
 # print(d) #{'c': 5, 'a': 3}
 
 """
- items/
- keys
- values
+ items , list of k-v pairs,as 2-tuples
+    Python 3’s changes is that  items() now return iterators,
+     and a list is never fully built. The iteritems() method is also gone,
+    
+ keys,
+ 
+ values,
+"""
+x={'a':1,'b':3}
+x2=x.items()
+#print(type(x2)) #<class 'dict_items'>
+#print(x2)  #dict_items([('b', 3), ('a', 1)])
+
+
+"""
+ list :
+    list.remove(item) ,参数为元素
+    list.pop(idx)   ,参数为索引
+    
+ pop, popitem
+    D.pop(k[,d]) -> v, remove specified key and return the corresponding value.
+    If key is not found, d is returned if given, otherwise KeyError is raised
+    
+    D.popitem() -> (k, v), remove and return some (key, value) pair as a
+    2-tuple; but raise KeyError if D is empty.
+        不是最后元素，dict无序，也就没有最后和最先，是随机删一个，并将删除的返回
+    
+ dict是无序的   
+"""
+#help(dict.pop)
+#help(dict.popitem)
+
+
+#help(dict.update)
+"""
+ D.update([E, ]**F) -> None.  Update D from dict/iterable E and F.
+    If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]
+    If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
+    In either case, this is followed by: for k in F:  D[k] = F[k]
 """
 
+help(dict.has_key)
+"""
+some_dict.keys() & another_dict.keys()
+    in Python 3.x. This returns the common keys of the two dictionaries as a set.
 
+[key for key in some_dict if key in another_dict]
+
+P3 remove dict.has_key() – use the in operator instead.   
+    d = {'a': 1, 'b': 2}
+   'a' in d
+    
+"""
+
+"""
+学过的对象类型归纳：
+可索引的, list/str ,有index所以元素可重复
+可变的, list/dict , 元素/键值对 可以原地修改
+不可变的 , str/int ,不能原地修改
+无索引序列的 ,dict, 元素无序！
+"""
